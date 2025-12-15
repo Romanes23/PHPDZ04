@@ -1,7 +1,7 @@
-<form action="index.php?page=4" method="POST" class="col-lg-6 col-md-12 col-sm-12">
+<form action="index.php?page=4" method="POST" class="col-lg-6 col-md-12 col-sm-12 ">
 
 
-    <div class="mb-3"> <!-- Имя -->
+    <div class="mb-3 "> <!-- Имя -->
         <label for="username" class="form-label">Укажите свои ФИО</label>
         <input type="text" class="form-control" id="username" name="username">
     </div>
@@ -27,9 +27,9 @@
 
     <div class="mb-3">
         <p>Особые группы</p>
-        <p>Многодетный родитель: <input type="checkbox" name="spesgroup[]" value="many_childT" /></p>
+        <p>Многодетный родитель: <input type="checkbox" name="spesgroup[]" value="many_child" /></p>
         <p>Участник СВО: <input type="checkbox" name="spesgroup[]" value="SVO" /></p>
-        <p>Пенсионер: <input type="checkbox" name="spesgroup[]" value="Пенсионер" /></p>
+        <p>Пенсионер: <input type="checkbox" name="spesgroup[]" value="Retired" /></p>
     </div>
 
     <div class="mb-3">

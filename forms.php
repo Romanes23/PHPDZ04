@@ -1,7 +1,7 @@
 <?
 require_once "helpers.php";
 
-echo "Name: " . $_GET["name"] . "<br>"
+//echo "Name: " . $_GET["name"] . "<br>"
 ?>
 
 <h5>GET FORM</h5>

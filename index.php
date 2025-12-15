@@ -41,22 +41,7 @@
       require_once "pages/registration.php";
       ?>
     </div>
-    <div class="container py-3">
-      <?
-      if (isset($_GET['page'])) {
-        $page = (int)($_GET['page']);
-        if ($page === 1) {
-          require_once "pages/home.php";
-        } elseif ($page === 2) {
-          require_once "pages/upload.php";
-        } elseif ($page === 3) {
-          require_once "pages/gallery.php";
-        } elseif ($page === 4) {
-          require_once "pages/registration.php";
-        };
-      }
-      ?>
-    </div>
+
   </main>
 
 

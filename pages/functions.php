@@ -1,41 +1,55 @@
 <!-- <H5> HELLO functions.php </H5> -->
 <?
-function regUser($username, $age, $age1, $gender, $tipezan,  $spesgroup, $term_of_credit, $sum_of_credit, $sum_of_incom )
-{
-    $errors = [];
-    
-    $username = trim(htmlspecialchars($username));
-    $age = trim(htmlspecialchars($age));
-    $term_of_credit = trim(htmlspecialchars($term_of_credit));
-    $sum_of_credit = trim(htmlspecialchars($sum_of_credit));
-    $sum_of_incom = trim(htmlspecialchars($sum_of_incom));
-   // var_dump($username, $age, $term_of_credit, $sum_of_credit);
-    $errors = validate($username, $age, $term_of_credit, $sum_of_credit, $sum_of_incom);
-    dd($errors);
-    return $errors;
+// function regUser($username, $age,  $gender, $tipezan, $spesgroup )
+// {
+//     $errors = [];
+   
+//     $username = trim(htmlspecialchars($username));
+//     $age = trim(htmlspecialchars($age));
+
+//    // var_dump($username, $age,  $gender, $tipezan,  $spesgroup, $term_of_credit, $sum_of_credit, $sum_of_incom );
+//     $errors = validate($username, $age,  $gender, $tipezan, $spesgroup);
+      
+//     // dd($errors);
+//     return $errors;
   
-}
+// }
 
-function validate($username, $age, $age1, $term_of_credit, $sum_of_credit ,$sum_of_incom)
-{
+function validate($username, $age,  $gender, $tipezan, $spesgroup)
+{   
+
+   $username = trim(htmlspecialchars($username));
+    $age = trim(htmlspecialchars($age));
+
+
     $errors = [];
-    if (empty($username) || empty($age) || empty($term_of_credit) || 
-        empty($sum_of_credit) || empty($sum_of_incom) ){
-         $errors[] = "All filds must be filled";
-     };
-
-    if (mb_strlen($username) < 3 && mb_strlen($username) > 15) {
-       // echo "The number of characters in the  name field should be from 3 to 15   ";
-        $errors[] = "The number of characters in the  name field should be from 3 to 15   ";
-    };
-    if (mb_strlen($term_of_credit) < 3 && mb_strlen($term_of_credit) > 30) {
-       // echo "Characters term_of_credit and confirm filds aren't equally";
-        $errors[] = "The number of characters in the  term_of_credit field should be from 5 to 30   "; 
-    };
-
-        return $errors;
+     if (empty($username) || empty($age)|| is_null($gender) || empty($tipezan)|| empty($term_of_credit)
+                || empty($sum_of_credit) || empty($sum_of_incom)  )
+            {$errors = "10";}
+    if (mb_strlen($username) < 3 && mb_strlen($username) > 40) {
+            {$errors = "10";}
+    }         
+    if ($age > 55 && $age <21) {$errors = "1";}
+    if (in_array("many_child", $spesgroup) && $age <31 ) { $errors = "2";}
+    if ($tipezan==="IP"|| $tipezan==="SZ"|| (in_array("many_child", haystack: $spesgroup) && $age >30 )) { $errors = "3";}
+    if (!in_array("1", $errors) && !in_array("2", $errors) ) { $errors = "4";}
+    return $errors;
     
 }
 
+    // $term_of_credit = trim(htmlspecialchars($term_of_credit));
+    // $sum_of_credit = trim(htmlspecialchars($sum_of_credit));
+    // $sum_of_incom = trim(htmlspecialchars($sum_of_incom));
 
+// , $term_of_credit, $sum_of_credit, $sum_of_incom 
+
+
+// Условия:
+// 0. Базовая ставка 30%
+// 1. Отказать всем младше 21 и старше 55 . Многодетным матерям до 30 отказать
+// 2. Для ИП и Самозанятых повысить ставку на 5%
+// 3. Для многодетных повысить ставку на 5%, 
+// 4. для остальных групп повысить на 7%
+// 5. Рассчитать ежемесячный платеж.
+// 6. Если платеж превышает 50% от дохода - отказать
 
