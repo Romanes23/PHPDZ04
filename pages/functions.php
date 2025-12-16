@@ -8,22 +8,22 @@ function validate($username, $age,  $gender, $tipezan, &$ids, $term_of_credit,$s
    $child = in_array("'many_child'", $ids);
    $username = trim(htmlspecialchars($username));
     $fl=0;
-    $errors = [];
+    
     if (empty($username) || empty($age)||  empty($gender) || empty($tipezan)|| empty($term_of_credit)
-                          || empty($sum_of_credit) || empty($sum_of_incom)  )  {$errors[] = "10";$er = "10"; $fl=1;}
+                          || empty($sum_of_credit) || empty($sum_of_incom)  )  {$er = "10"; $fl=1;}
 
     elseif ((mb_strlen($username) < 3 || mb_strlen($username) > 50) && $fl==0) 
-    {$errors[] = "10";$er = "10"; $fl=1;}  
+    {$er = "10"; $fl=1;}  
 
     elseif (($age > 55 || $age <21) && $fl==0)  {$errors[] = "1 отказ по возрасту";$er = "1 отказ по возрасту"; $fl=1;}
 
     elseif ($child && ($age <31) && ($gender==="female")  && ($fl==0)) 
-    { $errors[] = "2 отказ по матери";  $er ="2 отказ по матери"; $fl=1;}
+    {  $er ="2 отказ по матери"; $fl=1;}
    
     elseif (($tipezan==="IP"|| $tipezan==="SZ" || $child) && $age >30 && $fl==0)
-    { $errors[] = 5 ; $er = 5 ;  $fl=1;}
+    {; $er = 5 ;  $fl=1;}
 
-    elseif ($fl==0) { $errors[] = 7;$er = 7;}
+    elseif ($fl==0) {;$er = 7;}
    
     
     return $er;
