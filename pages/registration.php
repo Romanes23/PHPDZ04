@@ -7,18 +7,28 @@ require_once "pages/functions.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    // dump($_POST);
-     $errors = validate($_POST['username'], $_POST['age'], $_POST['gender'], 
-     $_POST['tipezan'], $_POST['spesgroup[]'] );
+     $errors = $errors($_POST['username'], $_POST['age'], $_POST['gender'], 
+     $_POST['tipezan'], $_POST['spesgroup[]'] , $_POST['term_of_credit'], $_POST['sum_of_credit'],
+     $_POST['sum_of_incom']);
     
-
-    if (!empty($errors)) {
-        $list = "<ul class = 'col-6' style  = 'color:red;'>";
-        foreach ($errors as $err) { $list .= "<li>$err</li>";}
-        $list .= "</ul>";
-        echo $list;
-    } else {
-        echo "<p class='mt-3 col-6' style ='color:green;'> User registered sucsessfully </p>";
-    }
+    if (in_array("10", $err)) {echo "<p class='mt-3 col-6' style ='color:red;'> Дефект заполнения формы </p>";}
+    else
+    $get_business = $get_business($_POST['username'], $_POST['age'], $_POST['gender'], 
+     $_POST['tipezan'], $_POST['spesgroup[]'] , $_POST['term_of_credit'], $_POST['sum_of_credit'],
+     $_POST['sum_of_incom']);
+   
+     return $get_business;
+  
+  
+  
+    // if (!empty($errors)) {
+    //     $list = "<ul class = 'col-6' style  = 'color:red;'>";
+    //     foreach ($errors as $err) { $list .= "<li>$err</li>";}
+    //     $list .= "</ul>";
+    //     echo $list;
+    // } else {
+    //     echo "<p class='mt-3 col-6' style ='color:green;'> User registered sucsessfully </p>";
+    // }
 }
 
 // Условия:

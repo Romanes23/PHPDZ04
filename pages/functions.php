@@ -15,6 +15,12 @@
   
 // }
 
+function get_business($username, $age,  $gender, $tipezan, $spesgroup, $term_of_credit, $sum_of_credit, $sum_of_incom ){
+
+ $err= validate($username, $age,  $gender, $tipezan, $spesgroup);
+
+
+}
 function validate($username, $age,  $gender, $tipezan, $spesgroup)
 {   
 
