@@ -27,9 +27,9 @@
 
     <div class="mb-3">
         <p>Особые группы</p>
-        <p>Многодетный родитель: <input type="checkbox" name="spesgroup[]" value="many_child" /></p>
-        <p>Участник СВО: <input type="checkbox" name="spesgroup[]" value="SVO" /></p>
-        <p>Пенсионер: <input type="checkbox" name="spesgroup[]" value="Retired" /></p>
+        <p>Многодетный родитель: <input type="checkbox" name="spesgroup['many_child']" /></p>
+        <p>Участник СВО: <input type="checkbox" name="spesgroup['SVO']"  /></p>
+        <p>Пенсионер: <input type="checkbox" name="spesgroup['Retired']"  /></p>
     </div>
 
     <div class="mb-3">
